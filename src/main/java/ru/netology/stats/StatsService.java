@@ -10,31 +10,33 @@ public class StatsService {
     }
 
     public long findMax(long[] purchases) {
-        long currentMax = purchases[0];
+        long maxPurchase = findMax(purchases);
+        long index = 0;
+        long indexMax = 1;
         for (long purchase : purchases) {
-            if (currentMax < purchase) {
-                currentMax = purchase;
+            index++;
+            if (purchase == maxPurchase) {
+                indexMax = index;
             }
         }
-        return currentMax;
+        return indexMax;
     }
 
     public long findMin(long[] purchases) {
-        long currentMin = purchases[0];
+        long minPurchase = findMin(purchases);
+        int index = 0;
+        int indexMin = 1;
         for (long purchase : purchases) {
-            if (currentMin > purchase) {
-                currentMin = purchase;
+            index++;
+            if (purchase == minPurchase) {
+                indexMin = index;
             }
         }
-        return currentMin;
+        return indexMin;
     }
 
     public long calculateAverageSum(long[] purchases) {
-        long averageSum = 0;
-        for (long purchase : purchases) {
-            averageSum += purchase;
-        }
-        return averageSum / 12;
+        return calculateSum(purchases) / purchases.length;
     }
 
     public long calculateMinAverageSum(long[] purchases) {
@@ -52,7 +54,7 @@ public class StatsService {
         long averageSum = calculateAverageSum(purchases);
         long maxAverageSum = 0;
         for (long purchase : purchases) {
-            if (averageSum <= purchase) {
+            if (averageSum < purchase) {
                 maxAverageSum++;
             }
         }
