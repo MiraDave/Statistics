@@ -9,28 +9,46 @@ public class StatsService {
         return sum;
     }
 
-    public long findMax(long[] purchases) {
-        long maxPurchase = purchases[0];
+    public long findMaximum(long[] purchases) {
+        long currentMax = purchases[0];
+        for (long purchase : purchases) {
+            if (currentMax < purchase) {
+                currentMax = purchase;
+            }
+        }
+        return currentMax;
+    }
+
+    public long findMaxMonth(long[] purchases) {
+        long maxPurchase = findMaximum(purchases);
         long index = 0;
         long indexMax = 1;
         for (long purchase : purchases) {
             index++;
-            if (purchase >= maxPurchase) {
-                maxPurchase = purchase;
+            if (purchase == maxPurchase) { ;
                 indexMax = index;
             }
         }
         return indexMax;
     }
 
-    public long findMin(long[] purchases) {
-        long minPurchase = purchases[0];
-        int index = 0;
-        int indexMin = 1;
+    public long findMinimum(long[] purchases) {
+        long currentMin = purchases[0];
+        for (long purchase : purchases) {
+            if (currentMin > purchase) {
+                currentMin = purchase;
+            }
+        }
+        return currentMin;
+    }
+
+    public long findMinMonth(long[] purchases) {
+        long minPurchase = findMinimum(purchases);
+        long index = 0;
+        long indexMin = 1;
         for (long purchase : purchases) {
             index++;
-            if (purchase <= minPurchase) {
-                minPurchase = purchase;
+            if (purchase == minPurchase) { ;
                 indexMin = index;
             }
         }

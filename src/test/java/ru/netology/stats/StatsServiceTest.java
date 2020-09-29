@@ -16,11 +16,29 @@ class StatsServiceTest {
     }
 
     @Test
+    void findMaximum() {
+        StatsService service = new StatsService();
+        long [] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 20;
+        long actual = service.findMaximum(purchases);
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void maxSumForYear() {
         StatsService service = new StatsService();
         long [] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 8;
-        long actual = service.findMax(purchases);
+        long actual = service.findMaxMonth(purchases);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void findMinimum() {
+        StatsService service = new StatsService();
+        long [] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 7;
+        long actual = service.findMinimum(purchases);
         assertEquals(expected, actual);
     }
 
@@ -29,7 +47,7 @@ class StatsServiceTest {
         StatsService service = new StatsService();
         long [] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 9;
-        long actual = service.findMin(purchases);
+        long actual = service.findMinMonth(purchases);
         assertEquals(expected, actual);
     }
 
