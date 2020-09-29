@@ -10,12 +10,13 @@ public class StatsService {
     }
 
     public long findMax(long[] purchases) {
-        long maxPurchase = findMax(purchases);
+        long maxPurchase = purchases[0];
         long index = 0;
         long indexMax = 1;
         for (long purchase : purchases) {
             index++;
-            if (purchase == maxPurchase) {
+            if (purchase >= maxPurchase) {
+                maxPurchase = purchase;
                 indexMax = index;
             }
         }
@@ -23,12 +24,13 @@ public class StatsService {
     }
 
     public long findMin(long[] purchases) {
-        long minPurchase = findMin(purchases);
+        long minPurchase = purchases[0];
         int index = 0;
         int indexMin = 1;
         for (long purchase : purchases) {
             index++;
-            if (purchase == minPurchase) {
+            if (purchase <= minPurchase) {
+                minPurchase = purchase;
                 indexMin = index;
             }
         }
